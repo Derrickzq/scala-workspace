@@ -39,4 +39,13 @@ def grep2(pattern: String) =
 
 grep2(".*gcd.*")
 // 这里还需要注意，如果我们用小括号，那么需要注意分号，但是如果使用花括号，就不用
+// for yield 语句使用：
+def scalaFile =
+  for (
+    file <- filesHere
+    if file.getName.endsWith(".scala")
+  ) yield file
 
+for (file <- filesHere if file.getName.endsWith(".scala")) {
+  yield file
+} //这种写法都是错误的
